@@ -225,3 +225,12 @@ Hopefully, this fully clarifies where `-lt`, `-gt`, and their friends fit in, an
 ### 🎉 Keep Going!
 
 You're mastering the art of decision-making in Bash. Understanding these conditional structures is a huge step forward in writing dynamic and useful scripts!
+
+
+## some string realted things 
+## 🔤 String Operators
+Expression	    Meaning	                     Example
+-z "$str"	    True if string is empty	    [[ -z "$name" ]]
+-n "$str"	    True if string is not empty	[[ -n "$input" ]]
+"$a" = "$b"	    Strings are equal	        [[ "$user" = "admin" ]]
+"$a" != "$b"	Strings are not equal	    [[ "$choice" != "yes" ]]

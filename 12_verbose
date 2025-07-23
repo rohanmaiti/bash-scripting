@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# default values
+name=""
+age=""
+city=""
+show_help=false
+
+# parse options using getopts
+while getopts "n:a:c:h" opt; do
+  case $opt in
+    n) name=$OPTARG ;;
+    a) age=$OPTARG ;;
+    c) city=$OPTARG ;;
+    h) show_help=true ;;
+    *) echo "Invalid option: -$OPTARG" ;;
+  esac
+done
+
+# show help if -h is passed
+if $show_help; then
+  echo "Usage: $0 -n name -a age [-c city]"
+  echo "  -n    Your name (required)"
+  echo "  -a    Your age (required)"
+  echo "  -c    Your city (optional)"
+  echo "  -h    Show help"
+  exit 0
+fi
+
+# check if required fields are missing
+if [[ -z $name || -z $age ]]; then
+  echo "❌ Error: Name and Age are required!"
+  echo "‼️ Run with -h for help."
+  exit 1
+fi
+
+# final output 
+echo "✅ Name: $name"
+echo "✅ Age: $age"
+[[ -n $city ]] && echo "✅ City: $city"
